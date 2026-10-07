@@ -1,0 +1,21 @@
+﻿@page
+@model DigitalLibraryFinal.Pages.Publishers.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Publisher</h1>
+
+<h3>Are you sure you want to delete @Model.Publisher.PublisherName?</h3>
+<div>
+    <hr />
+    <dl class="row">
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Publisher.PublisherName" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index" class="btn btn-outline-secondary">Back to List</a>
+    </form>
+</div>

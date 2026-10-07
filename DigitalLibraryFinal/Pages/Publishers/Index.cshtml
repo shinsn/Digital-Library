@@ -1,0 +1,39 @@
+﻿@page
+@model DigitalLibraryFinal.Pages.Publishers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Publishers</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Publishers
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Publisher)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublisherName)
+                </td>
+                
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.PublisherName" class="btn btn-outline-blue btn-sm me-1 mb-2 button-fixed-width">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.PublisherName" class="btn btn-outline-pink btn-sm me-1 mb-2 button-fixed-width">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,18 @@
+﻿@page
+@model DigitalLibraryFinal.Pages.Books.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete @Model.Book.Title? 😥💔</h3>
+<hr />
+<div>
+    <form method="post">
+        <input type="hidden" asp-for="Book.Isbn" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index" class="btn btn-outline-secondary">Back to List</a>
+    </form>
+</div>

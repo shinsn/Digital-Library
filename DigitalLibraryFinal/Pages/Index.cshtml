@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Your Digital Library!</h1>
+    <h3>✧˖°.🎧📖</h3>
+    <p>Store your favorite books all in one place.</p>
+    <div></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach (var b in Model.BookList)
+            {
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 d-flex flex-column align-items-center">
+                    <a asp-page="/Books/Details" asp-route-id="@b.Isbn" class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center">
+                        <div class="book-shape d-flex justify-content-center align-items-center">
+                            <i class="bi bi-star-fill text-warning fs-3"></i>
+                        </div>
+                        <div class="book-title text-center mt-2 w-100">
+                            <strong>@b.Title</strong>
+                        </div>
+                    </a>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

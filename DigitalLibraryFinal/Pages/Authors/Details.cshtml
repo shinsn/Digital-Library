@@ -1,0 +1,50 @@
+﻿@page
+@model DigitalLibraryFinal.Pages.Authors.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Author Details</h1>
+
+<div>
+    <h4>Author</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Author
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Author.AuthorName)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Author.AuthorId" class="btn btn-outline-primary me-2">Edit</a>
+    <a asp-page="./Index" class="btn btn-outline-secondary">Back to List</a>
+</div>
+
+<hr />
+<h2 class="mt-4">Books Written By @Model.Author.AuthorName</h2>
+<hr />
+
+<div class="container">
+    <div class="row justify-content-start">
+        @foreach (var b in Model.Books)
+        {
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 d-flex flex-column align-items-center">
+                <a asp-page="/Books/Details" asp-route-id="@b.Isbn" class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center">
+                   
+                    <div class="book-shape d-flex justify-content-center align-items-center">
+                        <i class="bi bi-book-fill text-primary fs-3"></i>
+                    </div>
+                   
+                    <div class="book-title text-center mt-2 w-100">
+                        <strong>@b.Title</strong>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

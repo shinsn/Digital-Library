@@ -1,0 +1,37 @@
+﻿@page
+@model DigitalLibraryFinal.Pages.Genres.DetailsModel
+
+@{
+    ViewData["Title"] = "Genre Details";
+}
+
+<h1>Genre: @Model.Genre.GenreName</h1>
+<hr />
+
+<h2>Books with @Model.Genre.GenreName</h2>
+<hr />
+
+<div class="container">
+    <div class="row justify-content-start">
+        @foreach (var b in Model.Books)
+        {
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 d-flex flex-column align-items-center">
+                <a asp-page="/Books/Details" asp-route-id="@b.Isbn" class="text-decoration-none text-dark w-100 d-flex flex-column align-items-center">
+                    <!-- Book Shape -->
+                    <div class="book-shape d-flex justify-content-center align-items-center">
+                        <i class="bi bi-book-fill text-success fs-3"></i>
+                    </div>
+                    <!-- Book Title -->
+                    <div class="book-title text-center mt-2 w-100">
+                        <strong>@b.Title</strong>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-page="./Edit" asp-route-id="@Model.Genre.GenreName" class="btn btn-outline-primary me-2">Edit</a>
+    <a asp-page="./Index" class="btn btn-outline-secondary">Back to List</a>
+</div>
